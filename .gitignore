@@ -3,33 +3,28 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.log
-
-
-env/
+*.egg-info/
+.env
+.venv
 venv/
-.venv/
 ENV/
-conda-env/
 
 
 .ipynb_checkpoints/
 
-.vscode/
 
+*.pkl
+*.joblib
+*.h5
+
+*.csv
+\
+.vscode/
 
 .DS_Store
 Thumbs.db
 
-*.pkl
-*.joblib
+*.log
 
 build/
 dist/
-*.egg-info/
-
-.env
-
-
-*.tmp
-*.swp

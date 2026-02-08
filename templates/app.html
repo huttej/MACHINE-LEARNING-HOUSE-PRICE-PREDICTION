@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EstateAI | Universal Price Predictor</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>EstateAI | House Price Prediction</title>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="app.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
 </head>
 <body>
+
+    <!-- Background -->
     <div class="bg-image"></div>
 
+    <!-- HERO SECTION -->
     <section id="hero-section" class="hero-container fade-in">
         <header>
             <h1>EstateAI</h1>
+            <p>Smart Property Valuation Engine</p>
         </header>
+
         <div class="stats-row">
             <div class="stat-card">
                 <h3>1000+</h3>
-                <p>Locations </p>
+                <p>Locations</p>
             </div>
             <div class="stat-card">
-                <h3>95.8%</h3>
+                <h3>95%</h3>
                 <p>Accuracy</p>
             </div>
             <div class="stat-card">
@@ -29,44 +40,50 @@
                 <p>Results</p>
             </div>
         </div>
+
         <button class="next-btn" onclick="showPredictionPage()">Start Valuation →</button>
     </section>
 
+    <!-- PREDICTION SECTION -->
     <section id="prediction-section" class="container" style="display:none;">
         <div class="form-card slide-up">
+
             <button class="back-btn" onclick="showHeroPage()">← Home</button>
-            <h2>Property Specs</h2>
-            
+            <h2>Enter Property Details</h2>
+
             <div class="input-group">
-                <label>Total Square Footage</label>
-                <input type="number" id="uiSqft" class="area" placeholder="e.g. 1500">
+                <label>Total Square Feet</label>
+                <input type="number" id="uiSqft" placeholder="e.g. 1200">
             </div>
 
             <div class="input-group">
-                <label>BHK (Bedrooms)</label>
-                <input type="number" id="uiBHK" class="area" placeholder="e.g. 3" value="2">
+                <label>BHK</label>
+                <input type="number" id="uiBHK" value="2">
             </div>
 
             <div class="input-group">
                 <label>Bathrooms</label>
-                <input type="number" id="uiBath" class="area" placeholder="e.g. 2" value="2">
+                <input type="number" id="uiBath" value="2">
             </div>
 
             <div class="input-group">
-                <label>Location Registry</label>
-                <select id="uiLocations" class="location">
-                    <option value="" disabled selected>Retrieving registry...</option>
+                <label>Location</label>
+                <select id="uiLocations">
+                    <option value="">Loading locations...</option>
                 </select>
             </div>
 
-            <button class="submit-btn" onclick="onClickedEstimatePrice()">Evaluate Property </button>
-            
-            <div id="uiEstimatedPrice" class="result-display pulse">
+            <button class="submit-btn" onclick="onClickedEstimatePrice()">
+                Predict Price
+            </button>
+
+            <div id="uiEstimatedPrice" class="result-display">
                 <h2></h2>
             </div>
         </div>
     </section>
 
-    <script src="app.js"></script>
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
